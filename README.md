@@ -2,6 +2,6 @@
 
 ## Technologies
 - React
-- Typescript
+- TypeScript
 - Node
 - Yarn

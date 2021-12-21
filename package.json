@@ -1,0 +1,16 @@
+{
+	"name": "learn-react-with-typescript-3",
+	"version": "1.0.0",
+	"description": "Learning React With TypeScript",
+	"main": "index.js",
+	"repository": "https://github.com/wazimuhb/Learn-React-with-TypeScript-3.git",
+	"author": "wazimuhb <hesbonosoro1@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"prettier": "^2.5.1"
+	}
+}

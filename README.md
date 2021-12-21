@@ -1,4 +1,4 @@
-## Learning React with Typescript
+## Learning React with TypeScript
 
 ## Technologies
 - React

@@ -1,7 +1,7 @@
-## Learning React with Typescript
+## Learning React with TypeScript
 
 ## Technologies
 - React
-- Typescript
+- TypeScript
 - Node
 - Yarn

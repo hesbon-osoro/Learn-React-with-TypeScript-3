@@ -1,8 +1,8 @@
 // objects
 var customer = {
-    name: "Lamps ltd",
-    turnover: 2001123,
-    active: true
+	name: 'Lamps ltd',
+	turnover: 2001123,
+	active: true,
 };
 // this is possible since we are not altering the customer object variable
 // rather we are changing one of its properties

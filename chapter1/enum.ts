@@ -1,8 +1,8 @@
-enum OrderStatusTS{
-    Paid,
-    Shipped,
-    Completed,
-    Cancelled,
+enum OrderStatusTS {
+	Paid,
+	Shipped,
+	Completed,
+	Cancelled,
 }
 
 let cancelTS = OrderStatusTS.Cancelled;

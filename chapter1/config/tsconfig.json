@@ -7,5 +7,6 @@
 		"sourceMap": true,
 		"noImplicitReturns": true,
 		"noImplicitAny": true
-	}
+	},
+	"files": ["orderDetails.ts"]
 }

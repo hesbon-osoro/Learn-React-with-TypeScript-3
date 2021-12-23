@@ -4,7 +4,7 @@ class Product6 {
 }
 
 class OrderDetail6 {
-	product: Product;
+	product: Product6;
 	quantity: number;
 
 	getTotal6(discount: number): number {

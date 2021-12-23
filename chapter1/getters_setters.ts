@@ -12,3 +12,11 @@ class Product13 {
 		this._price = value;
 	}
 }
+
+const table13 = new Product13();
+table13.name = 'Table';
+table13.price = -100;
+console.log(table13.price);
+
+table13.price = 100;
+console.log(table13.price);

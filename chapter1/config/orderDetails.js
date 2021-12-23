@@ -9,6 +9,10 @@ var OrderDetail = /** @class */ (function () {
         var discountAmount = priceWithoutDiscount * (discount || 0);
         return priceWithoutDiscount - discountAmount;
     };
+    OrderDetail.prototype.doSomething = function (input) {
+        input.something();
+        return input.result;
+    };
     return OrderDetail;
 }());
 exports.OrderDetail = OrderDetail;

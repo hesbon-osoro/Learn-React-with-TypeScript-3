@@ -8,7 +8,7 @@ export class OrderDetail {
 	quantity: number;
 	getTotal(discount: number): number {
 		const priceWithoutDiscount = this.product.price * this.quantity;
-		const discountAmount = priceWithoutDiscount * discount;
+		const discountAmount = priceWithoutDiscount * (discount || 0);
 		return priceWithoutDiscount - discountAmount;
 	}
 }

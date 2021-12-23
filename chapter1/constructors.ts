@@ -1,14 +1,23 @@
-class OrderDetail8 implements IOrderDetail {
-	product: Product7;
+interface Product8 {
+	name: string;
+	price: number;
+}
+
+interface IOrderDetail8 {
+	product: Product8;
+	quantity: number;
+}
+class OrderDetail8 implements IOrderDetail8 {
+	product: Product8;
 	quantity: number;
 
-	constructor(product: Product7, quantity: number = 1) {
-		this.product = product;
-		this.quantity = quantity;
+	constructor(public product8: Product8, public quantity8: number = 1) {
+		this.product = product8;
+		this.quantity = quantity8;
 	}
 
 	getTotal7(discount: number): number {
-		const priceWithoutDiscount = this.product.price * this.quantity;
+		const priceWithoutDiscount = this.product8.price * this.quantity8;
 		const discountAmount = priceWithoutDiscount * discount;
 		return priceWithoutDiscount - discountAmount;
 	}

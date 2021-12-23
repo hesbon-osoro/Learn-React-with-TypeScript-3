@@ -11,4 +11,9 @@ export class OrderDetail {
 		const discountAmount = priceWithoutDiscount * (discount || 0);
 		return priceWithoutDiscount - discountAmount;
 	}
+
+	doSomething(input: { something: () => void; result: string }) {
+		input.something();
+		return input.result;
+	}
 }

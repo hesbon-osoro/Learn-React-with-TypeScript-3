@@ -8,5 +8,7 @@
 		"noImplicitReturns": true,
 		"noImplicitAny": true
 	},
-	"files": ["orderDetails.ts"]
+	// "files": ["orderDetails.ts"]
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist"]
 }

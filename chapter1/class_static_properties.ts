@@ -16,3 +16,8 @@ class OrderDetail14 {
 		return priceWithoutDiscount - discountAmount;
 	}
 }
+
+// the static method is called direct by the class type itself
+//  and passing in all the parameter values
+const total = OrderDetail14.getTotal(100, 2, 0.1);
+console.log(total);

@@ -11,3 +11,5 @@ class Food extends Product11 {
 		super();
 	}
 }
+
+const bread = new Food(new Date(2023, 5, 14));

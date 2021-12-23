@@ -13,3 +13,5 @@ class OrderDetail8 implements IOrderDetail {
 		return priceWithoutDiscount - discountAmount;
 	}
 }
+
+const orderDetail8 = new OrderDetail8(table1, 2);

@@ -1,5 +1,4 @@
 {
-	"rules": {
-		"member-access": true
-	}
+	"extends": ["tslint:recommended"],
+	"rules": { "interface-name": false }
 }

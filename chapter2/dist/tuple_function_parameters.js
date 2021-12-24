@@ -1,5 +1,5 @@
 function lo(s1, s2, s3) {
-    console.log(s1, s2, s3);
+	console.log(s1, s2, s3);
 }
 const l1 = [75, 65, 80];
 lo(...l1);

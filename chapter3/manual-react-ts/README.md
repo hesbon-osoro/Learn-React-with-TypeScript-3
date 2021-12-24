@@ -8,4 +8,6 @@
 
 ### `cd manual-react-ts`
 
-### `yarn start`
+### `yarn start` to start local development server
+
+### `yarn build` to build for production server

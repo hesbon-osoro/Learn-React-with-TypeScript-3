@@ -9,3 +9,12 @@
 - React
 - TypeScript
 - Yarn
+
+### This project uses React and Life cycle methods
+
+- getDerivedStateFromProps
+- getSnapshotBeforeUpdate
+- componentDidUpdate
+- componentDidMount
+- componentWillUnmount
+- shouldComponentUpdate

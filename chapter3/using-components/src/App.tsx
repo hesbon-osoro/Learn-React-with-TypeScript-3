@@ -19,6 +19,41 @@ class App extends Component<{}, IState> {
 			countDown: 10,
 		};
 	}
+	public static getDerivedStateFromProps(props: {}, state: IState) {
+		console.log('getDerivedStateFromProps', props, state);
+		return null;
+	}
+	private timer: number = 0;
+	private renderCount = 0;
+
+	public getSnapshotBeforeUpdate(prevProps: {}, prevState: IState) {
+		this.renderCount += 1;
+		console.log('getSnapshotBeforeUpdate', prevProps, prevState, {
+			renderCount: this.renderCount,
+		});
+		return this.renderCount;
+	}
+	public componentDidUpdate(
+		prevProps: {},
+		prevState: IState,
+		snapshot: number
+	) {
+		console.log('componentDidUpdate', prevProps, prevState, snapshot, {
+			renderCount: this.renderCount,
+		});
+	}
+
+	public componentDidMount() {
+		this.timer = window.setInterval(() => this.handleTimerTick(), 1000);
+	}
+	public componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
+	public shouldComponentUpdate(nextProps: {}, nextState: IState) {
+		console.log('shouldComponentUpdate', nextProps, nextState);
+		return true;
+	}
 	private handleCancelConfirmClick = () => {
 		this.setState({
 			confirmMessage: `Take a break, I'm sure you will later`,
@@ -37,11 +72,6 @@ class App extends Component<{}, IState> {
 		this.setState({ confirmOpen: true });
 		clearInterval(this.timer);
 	};
-	private timer: number = 0;
-
-	public componentDidMount() {
-		this.timer = window.setInterval(() => this.handleTimerTick(), 1000);
-	}
 
 	private handleTimerTick() {
 		this.setState(

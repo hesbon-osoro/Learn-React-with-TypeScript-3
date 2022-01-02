@@ -27,6 +27,10 @@ code {
 	padding: 5px;
 }
 
+.product-list-item a {
+	text-decoration: none;
+}
+
 .header {
 	text-align: center;
 	background-color: #222;

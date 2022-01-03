@@ -31,7 +31,7 @@ const Routes: FC<RouteComponentProps> = props => {
 				<CSSTransition
 					key={props.location.key}
 					timeout={500}
-					className="animate"
+					classNames="animate"
 				>
 					<Switch>
 						<Redirect exact={true} from="/" to="/products" />

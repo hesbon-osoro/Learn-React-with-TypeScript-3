@@ -15,22 +15,30 @@ import ProductPage from './ProductPage';
 import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
 
-const Routes: FC = () => {
+const Routes: FC<RouteComponentProps> = props => {
 	const [loggedIn, setLoggedIn] = useState(true);
 	return (
 		<Router>
 			<div>
 				<Header />
-				<Switch>
-					<Redirect exact={true} from="/" to="/products" />
-					<Route exact={true} path="/products" component={ProductsPage} />
-					<Route path="/products/:id" component={ProductPage} />
-					<Route path="/admin">
-						{loggedIn ? <AdminPage /> : <Redirect to="/login" />}
-					</Route>
-					<Route path="/login" component={LoginPage} />
-					<Route component={NotFoundPage} />
-				</Switch>
+				<TransitionGroup>
+					<CSSTransition
+						key={props.location.key}
+						timeout={500}
+						className="animate"
+					>
+						<Switch>
+							<Redirect exact={true} from="/" to="/products" />
+							<Route exact={true} path="/products" component={ProductsPage} />
+							<Route path="/products/:id" component={ProductPage} />
+							<Route path="/admin">
+								{loggedIn ? <AdminPage /> : <Redirect to="/login" />}
+							</Route>
+							<Route path="/login" component={LoginPage} />
+							<Route component={NotFoundPage} />
+						</Switch>
+					</CSSTransition>
+				</TransitionGroup>
 			</div>
 		</Router>
 	);

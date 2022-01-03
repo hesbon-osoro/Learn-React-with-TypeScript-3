@@ -1,4 +1,5 @@
 ## Topics
+
 - Union types
 - Type guards
 - Generics

@@ -1,0 +1,14 @@
+{
+	"name": "chapter5",
+	"version": "1.0.0",
+	"description": "Learning Advanced  Types",
+	"main": "index.js",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"prettier": "^2.5.1"
+	}
+}

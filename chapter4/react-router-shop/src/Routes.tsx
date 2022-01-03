@@ -15,6 +15,13 @@ import ProductPage from './ProductPage';
 import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
 
+const RoutesWrap: FC = () => {
+	return (
+		<Router>
+			<Route component={Routes} />
+		</Router>
+	);
+};
 const Routes: FC<RouteComponentProps> = props => {
 	const [loggedIn, setLoggedIn] = useState(true);
 	return (
@@ -44,4 +51,4 @@ const Routes: FC<RouteComponentProps> = props => {
 	);
 };
 
-export default Routes;
+export default RoutesWrap;

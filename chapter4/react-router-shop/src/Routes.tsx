@@ -25,29 +25,27 @@ const RoutesWrap: FC = () => {
 const Routes: FC<RouteComponentProps> = props => {
 	const [loggedIn, setLoggedIn] = useState(true);
 	return (
-		<Router>
-			<div>
-				<Header />
-				<TransitionGroup>
-					<CSSTransition
-						key={props.location.key}
-						timeout={500}
-						className="animate"
-					>
-						<Switch>
-							<Redirect exact={true} from="/" to="/products" />
-							<Route exact={true} path="/products" component={ProductsPage} />
-							<Route path="/products/:id" component={ProductPage} />
-							<Route path="/admin">
-								{loggedIn ? <AdminPage /> : <Redirect to="/login" />}
-							</Route>
-							<Route path="/login" component={LoginPage} />
-							<Route component={NotFoundPage} />
-						</Switch>
-					</CSSTransition>
-				</TransitionGroup>
-			</div>
-		</Router>
+		<div>
+			<Header />
+			<TransitionGroup>
+				<CSSTransition
+					key={props.location.key}
+					timeout={500}
+					className="animate"
+				>
+					<Switch>
+						<Redirect exact={true} from="/" to="/products" />
+						<Route exact={true} path="/products" component={ProductsPage} />
+						<Route path="/products/:id" component={ProductPage} />
+						<Route path="/admin">
+							{loggedIn ? <AdminPage /> : <Redirect to="/login" />}
+						</Route>
+						<Route path="/login" component={LoginPage} />
+						<Route component={NotFoundPage} />
+					</Switch>
+				</CSSTransition>
+			</TransitionGroup>
+		</div>
 	);
 };
 

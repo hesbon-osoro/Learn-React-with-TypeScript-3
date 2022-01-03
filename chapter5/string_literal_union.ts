@@ -1,4 +1,4 @@
-export type Control = 'Textbox' | 'DropDown';
+export type Control = 'Textbox' | 'DropDown' | 'DatePicker' | 'NumberSlider';
 
 export let notes: Control;
 notes = 'Textbox';

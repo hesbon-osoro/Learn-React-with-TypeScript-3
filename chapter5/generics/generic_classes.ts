@@ -27,4 +27,4 @@ export const people = new List<IPerson>();
 people.add(billy);
 people.remove(billy);
 
-export const items  = people.getList()
+export const items = people.getList();

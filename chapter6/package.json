@@ -1,0 +1,15 @@
+{
+	"name": "chapter6",
+	"version": "1.0.0",
+	"description": "Component Patterns",
+	"main": "index.js",
+	"author": "wazimuhb <hesbonosoro1@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"prettier": "^2.5.1"
+	}
+}

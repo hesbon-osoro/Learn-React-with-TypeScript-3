@@ -8,9 +8,10 @@
 - Yarn
 
 ## Learning Curves
+
 - using create-react-app
 - manual creating and configuring react-typescript app using webpack
-  
+
 ## create-react-app
 
 ### `yarn create react-app react-ts-app --template typescript`

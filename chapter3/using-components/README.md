@@ -3,6 +3,7 @@
 ### Sample Project to put knowledge into use
 
 ### Initializing the app using create-react-app
+
 ### `yarn create react-app using-components --template typescript`
 
 ## Technologies & Skills

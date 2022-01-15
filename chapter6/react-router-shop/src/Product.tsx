@@ -16,6 +16,15 @@ const Product: React.FC<IProps> = props => {
 		<React.Fragment>
 			<h1>{product.name}</h1>
 			<p>{product.description}</p>
+			<div>
+				<ul className="product-reviews">
+					{product.reviews.map(review => (
+						<li key={review.reviewer} className="product-reviews-item">
+							<i>"{review.comment}"</i> - {review.reviewer}
+						</li>
+					))}
+				</ul>
+			</div>
 			<p className="product-price">
 				{new Intl.NumberFormat('en-US', {
 					currency: 'USD',

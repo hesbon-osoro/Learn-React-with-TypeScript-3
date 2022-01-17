@@ -102,3 +102,12 @@ code {
 .animate-exit {
 	display: none;
 }
+
+.product-reviews {
+	list-style: none;
+	padding: 0px;
+}
+.product-reviews .product-reviews-item {
+	display: block;
+	padding: 8px 0px;
+}

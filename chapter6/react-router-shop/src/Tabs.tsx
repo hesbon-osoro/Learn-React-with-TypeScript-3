@@ -53,16 +53,14 @@ export interface ITabProps {
 	initialActive?: boolean;
 }
 class Tabs extends React.Component<{}, IState> {
-	public static Tab: React.FC<ITabProps> = props => (
-		<li>TODO - render the child nodes</li>
-	);
+	public static Tab: React.FC<ITabProps> = props => <li>{props.children}</li>;
 	private handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
 		const li = e.target as HTMLLIElement;
 		const heading: string = li.textContent ? li.textContent : '';
 		this.setState({ activeName: heading });
 	};
 	public render() {
-		return <p>Hello</p>;
+		return <ul className="tabs">{this.props.children}</ul>;
 	}
 }
 

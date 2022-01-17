@@ -23,6 +23,10 @@ export const products: IProduct[] = [
 				comment: 'Excellent! This does everything I want',
 				reviewer: 'Billy',
 			},
+			{
+				comment: "The best router I've ever worked with",
+				reviewer: 'Sally',
+			},
 		],
 	},
 	{

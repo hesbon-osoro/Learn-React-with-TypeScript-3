@@ -17,6 +17,12 @@ const Product: React.FC<IProps> = props => {
 		<React.Fragment>
 			<h1>{product.name}</h1>
 			{/* <Tabs headings={['Description', 'Reviews']} /> */}
+			<Tabs>
+				<Tabs.Tab name="Description" initialActive={true}>
+					<b>Description</b>
+				</Tabs.Tab>
+				<Tabs.Tab name="Reviews">Reviews</Tabs.Tab>
+			</Tabs>
 			<p>{product.description}</p>
 			<div>
 				<ul className="product-reviews">

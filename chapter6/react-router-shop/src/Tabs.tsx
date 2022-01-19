@@ -46,7 +46,7 @@
 import React from 'react';
 
 export interface ITabsContext {
-	ActiveName?: string;
+	activeName?: string;
 	handleTabClick?: (name: string) => void;
 }
 export interface IState {

@@ -44,6 +44,11 @@
 
 // Refactored component
 import React from 'react';
+
+export interface ITabsContext {
+	ActiveName?: string;
+	handleTabClick?: (name: string) => void;
+}
 export interface IState {
 	activeName: string;
 }

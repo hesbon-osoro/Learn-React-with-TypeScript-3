@@ -60,7 +60,30 @@ export interface ITabProps {
 	initialActive?: boolean;
 }
 class Tabs extends React.Component<{}, IState> {
-	public static Tab: React.FC<ITabProps> = props => <li>{props.children}</li>;
+	public static Tab: React.FC<ITabProps> = props => (
+		<TabsContext.Consumer>
+			{(context: ITabsContext) => {
+				const activeName = context.activeName
+					? context.activeName
+					: props.initialActive
+					? props.name
+					: '';
+				const handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
+					if (context.handleTabClick) {
+						context.handleTabClick(props.name);
+					}
+				};
+				return (
+					<li
+						onClick={handleTabClick}
+						className={props.name === activeName ? 'active' : ''}
+					>
+						{props.children}
+					</li>
+				);
+			}}
+		</TabsContext.Consumer>
+	);
 	private handleTabClick = (name: string) => {
 		this.setState({ activeName: name });
 	};

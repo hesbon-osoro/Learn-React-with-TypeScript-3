@@ -49,6 +49,8 @@ export interface ITabsContext {
 	activeName?: string;
 	handleTabClick?: (name: string) => void;
 }
+
+export const TabsContext = React.createContext<ITabsContext>({});
 export interface IState {
 	activeName: string;
 }

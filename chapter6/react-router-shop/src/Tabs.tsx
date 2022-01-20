@@ -98,6 +98,7 @@ class Tabs extends React.Component<{}, IState> {
 				}}
 			>
 				<ul className="tabs">{this.props.children}</ul>
+				<div>{this.state && this.state.activeContent}</div>
 			</TabsContext.Provider>
 		);
 	}

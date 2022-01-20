@@ -47,12 +47,13 @@ import React from 'react';
 
 export interface ITabsContext {
 	activeName?: string;
-	handleTabClick?: (name: string) => void;
+	handleTabClick?: (name: string, content: React.ReactNode) => void;
 }
 
 export const TabsContext = React.createContext<ITabsContext>({});
 export interface IState {
 	activeName: string;
+	activeContent: React.ReactNode;
 }
 
 export interface ITabProps {
@@ -71,7 +72,7 @@ class Tabs extends React.Component<{}, IState> {
 					: '';
 				const handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
 					if (context.handleTabClick) {
-						context.handleTabClick(props.name);
+						context.handleTabClick(props.name, props.children);
 					}
 				};
 				return (
@@ -85,8 +86,8 @@ class Tabs extends React.Component<{}, IState> {
 			}}
 		</TabsContext.Consumer>
 	);
-	private handleTabClick = (name: string) => {
-		this.setState({ activeName: name });
+	private handleTabClick = (name: string, content: React.ReactNode) => {
+		this.setState({ activeName: name, activeContent: content });
 	};
 	public render() {
 		return (

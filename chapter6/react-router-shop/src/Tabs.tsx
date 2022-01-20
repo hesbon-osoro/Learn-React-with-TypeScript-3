@@ -58,6 +58,7 @@ export interface IState {
 export interface ITabProps {
 	name: string;
 	initialActive?: boolean;
+	heading: () => string | JSX.Element;
 }
 class Tabs extends React.Component<{}, IState> {
 	public static Tab: React.FC<ITabProps> = props => (
@@ -78,7 +79,7 @@ class Tabs extends React.Component<{}, IState> {
 						onClick={handleTabClick}
 						className={props.name === activeName ? 'active' : ''}
 					>
-						{props.children}
+						{props.heading()}
 					</li>
 				);
 			}}

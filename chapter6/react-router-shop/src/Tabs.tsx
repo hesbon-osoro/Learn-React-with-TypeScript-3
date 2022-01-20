@@ -65,6 +65,12 @@ class Tabs extends React.Component<{}, IState> {
 	public static Tab: React.FC<ITabProps> = props => (
 		<TabsContext.Consumer>
 			{(context: ITabsContext) => {
+				if (!context.activeName && props.initialActive) {
+					if (context.handleTabClick) {
+						context.handleTabClick(props.name, props.children);
+						return null;
+					}
+				}
 				const activeName = context.activeName
 					? context.activeName
 					: props.initialActive

@@ -26,16 +26,15 @@ const Product: React.FC<IProps> = props => {
 					<p>{product.description}</p>
 				</Tabs.Tab>
 				<Tabs.Tab name="Reviews" heading={() => 'Reviews'}>
-				<ul className="product-reviews">
-					{product.reviews.map(review => (
-						<li key={review.reviewer} className="product-reviews-item">
-							<i>"{review.comment}"</i> - {review.reviewer}
-						</li>
-					))}
-				</ul>
+					<ul className="product-reviews">
+						{product.reviews.map(review => (
+							<li key={review.reviewer} className="product-reviews-item">
+								<i>"{review.comment}"</i> - {review.reviewer}
+							</li>
+						))}
+					</ul>
 				</Tabs.Tab>
 			</Tabs>
-			
 			<p className="product-price">
 				{new Intl.NumberFormat('en-US', {
 					currency: 'USD',

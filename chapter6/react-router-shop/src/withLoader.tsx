@@ -4,11 +4,14 @@ export interface IProps {
 }
 const withLoader =
 	<P extends object>(Component: React.ComponentType<P>): React.FC<P & IProps> =>
-	({
-		loading,
-		...props
-	}: IProps) => // TODO - return a loading spinner if loading is true otherwise return the component passed in
-	{
-		return null;
-	};
+	({ loading, ...props }: IProps) =>
+		loading ? (
+			<div className="loader-overlay">
+				<div className="loader-circle-wrap">
+					<div className="loader-circle" />
+				</div>
+			</div>
+		) : (
+			<Component {...props} />
+		);
 export default withLoader;

@@ -25,9 +25,7 @@ const Product: React.FC<IProps> = props => {
 				>
 					<p>{product.description}</p>
 				</Tabs.Tab>
-				<Tabs.Tab name="Reviews" heading={() => 'Reviews'}></Tabs.Tab>
-			</Tabs>
-			<div>
+				<Tabs.Tab name="Reviews" heading={() => 'Reviews'}>
 				<ul className="product-reviews">
 					{product.reviews.map(review => (
 						<li key={review.reviewer} className="product-reviews-item">
@@ -35,7 +33,9 @@ const Product: React.FC<IProps> = props => {
 						</li>
 					))}
 				</ul>
-			</div>
+				</Tabs.Tab>
+			</Tabs>
+			
 			<p className="product-price">
 				{new Intl.NumberFormat('en-US', {
 					currency: 'USD',

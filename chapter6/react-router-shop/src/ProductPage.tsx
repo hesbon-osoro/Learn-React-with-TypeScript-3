@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Prompt, RouteComponentProps } from 'react-router-dom';
-import { IProduct, products } from './ProductsData';
+import { IProduct, getProduct } from './ProductsData';
 import Product from './Product';
 
 type Props = RouteComponentProps<{ id: string }>;
@@ -8,19 +8,22 @@ type Props = RouteComponentProps<{ id: string }>;
 interface IState {
 	product?: IProduct;
 	added: boolean;
+	loading: boolean;
 }
 
 class ProductPage extends Component<Props, IState> {
 	public constructor(props: Props) {
 		super(props);
-		this.state = { added: false };
+		this.state = { added: false, loading: true };
 	}
-	public componentDidMount() {
+	public async componentDidMount() {
 		if (this.props.match.params.id) {
 			const id: number = parseInt(this.props.match.params.id, 10);
-			const product = products.filter(product => product.id === id)[0];
+			const product = await getProduct(id);
 
-			this.setState({ product });
+			if (product !== null) {
+				this.setState({ product, loading: false });
+			}
 		}
 	}
 	private handleAddClick = () => {

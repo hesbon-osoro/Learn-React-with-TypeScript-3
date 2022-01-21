@@ -39,6 +39,7 @@ class ProductPage extends Component<Props, IState> {
 				<Prompt when={!this.state.added} message={this.navAwayMessage} />
 				{product ? (
 					<Product
+						loading={this.state.loading}
 						product={product}
 						inBasket={this.state.added}
 						onAddToBasket={this.handleAddClick}

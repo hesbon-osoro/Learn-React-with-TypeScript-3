@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Prompt, RouteComponentProps } from 'react-router-dom';
 import { IProduct, getProduct } from './ProductsData';
 import Product from './Product';

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Prompt, RouteComponentProps } from 'react-router-dom';
 import { IProduct, getProduct } from './ProductsData';
 import Product from './Product';
+import withLoader from './withLoader';
 
 type Props = RouteComponentProps<{ id: string }>;
 

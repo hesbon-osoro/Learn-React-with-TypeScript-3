@@ -49,4 +49,4 @@ const Product: React.FC<IProps> = props => {
 	);
 };
 
-export default Product;
+export default withLoader(Product);

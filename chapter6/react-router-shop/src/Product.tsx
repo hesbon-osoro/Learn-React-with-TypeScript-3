@@ -1,6 +1,7 @@
 import React from 'react';
 import { IProduct } from './ProductsData';
 import Tabs from './Tabs';
+import withLoader from './withLoader';
 
 export interface IProps {
 	product: IProduct;

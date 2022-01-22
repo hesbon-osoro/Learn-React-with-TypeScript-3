@@ -37,7 +37,7 @@ class ProductPage extends Component<Props, IState> {
 		return (
 			<div className="page-container">
 				<Prompt when={!this.state.added} message={this.navAwayMessage} />
-				{product ? (
+				{product || this.state.loading ? (
 					<Product
 						loading={this.state.loading}
 						product={product}

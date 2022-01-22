@@ -4,7 +4,7 @@ import Tabs from './Tabs';
 import withLoader from './withLoader';
 
 export interface IProps {
-	product: IProduct;
+	product?: IProduct;
 	inBasket: boolean;
 	onAddToBasket: () => void;
 }
@@ -13,6 +13,7 @@ const Product: React.FC<IProps> = props => {
 
 	const handleAddClick = () => {
 		props.onAddToBasket();
+		if (!product) return null;
 	};
 	return (
 		<React.Fragment>

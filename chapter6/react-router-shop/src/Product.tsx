@@ -13,8 +13,10 @@ const Product: React.FC<IProps> = props => {
 
 	const handleAddClick = () => {
 		props.onAddToBasket();
-		if (!product) return null;
 	};
+	if (!product) {
+		return null;
+	}
 	return (
 		<React.Fragment>
 			<h1>{product.name}</h1>

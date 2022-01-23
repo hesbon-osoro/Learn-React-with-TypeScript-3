@@ -4,8 +4,8 @@ export interface IProps {
 }
 const withLoader =
 	<P extends object>(Component: React.ComponentType<P>): React.FC<P & IProps> =>
-	({ loading, ...props }: IProps) =>
-		loading ? (
+	(props: P & IProps) =>
+		props.loading ? (
 			<div className="loader-overlay">
 				<div className="loader-circle-wrap">
 					<div className="loader-circle" />

@@ -159,3 +159,26 @@ code {
 	height: 100px;
 	animation: loader-circle-spin 0.7s linear infinite;
 }
+.form {
+	width: 300px;
+	margin: 0 auto 0 auto;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+.form-group label {
+	align-self: flex-start;
+	font-size: 16px;
+	margin-bottom: 3px;
+}
+.form-group input,
+select,
+textarea {
+	font-family: Arial;
+	font-size: 16px;
+	padding: 5px;
+	border: lightgray solid 1px;
+	border-radius: 5px;
+}

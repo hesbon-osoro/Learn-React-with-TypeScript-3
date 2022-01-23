@@ -13,6 +13,7 @@ import ProductsPage from './ProductsPage';
 import ProductPage from './ProductPage';
 import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
+import ContactUsPage from './ContactUsPage';
 
 const AdminPage = lazy(() => import('./AdminPage'));
 
@@ -38,6 +39,7 @@ const Routes: FC<RouteComponentProps> = props => {
 						<Redirect exact={true} from="/" to="/products" />
 						<Route exact={true} path="/products" component={ProductsPage} />
 						<Route path="/products/:id" component={ProductPage} />
+						<Route path="/contactus" component={ContactUsPage} />
 						<Route path="/admin">
 							{loggedIn ? (
 								<Suspense

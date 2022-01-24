@@ -9,6 +9,12 @@ export interface IState {
 	notes: string;
 }
 
+export interface IProps {
+	name: string;
+	email: string;
+	reason: string;
+	notes: string;
+}
 export class ContactUsPage extends React.Component<{}, IState> {
 	public constructor(props: {}) {
 		super(props);

@@ -1,6 +1,13 @@
 import React from 'react';
 
-const ContactUs: React.FC = () => {
+export interface IProps {
+	name: string;
+	email: string;
+	reason: string;
+	notes: string;
+}
+
+const ContactUs: React.FC<IProps> = props => {
 	return (
 		<form className="form" noValidate={true}>
 			<div className="form-group">

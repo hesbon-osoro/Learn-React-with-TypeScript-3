@@ -2,6 +2,13 @@ import React from 'react';
 
 import ContactUs from './ContactUs';
 
+export interface IState {
+	name: string;
+	email: string;
+	reason: string;
+	notes: string;
+}
+
 export class ContactUsPage extends React.Component {
 	public render() {
 		return (

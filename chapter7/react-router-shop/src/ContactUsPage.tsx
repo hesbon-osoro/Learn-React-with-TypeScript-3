@@ -9,7 +9,7 @@ export interface IState {
 	notes: string;
 }
 
-export class ContactUsPage extends React.Component {
+export class ContactUsPage extends React.Component<{},IState> {
 	public render() {
 		return (
 			<div className="page-container">

@@ -26,7 +26,12 @@ export class ContactUsPage extends React.Component<{}, IState> {
 				<p>
 					If you enter your details we'll get back to you as soon as we can.
 				</p>
-				<ContactUs />
+				<ContactUs
+					name={this.state.name}
+					email={this.state.email}
+					reason={this.state.reason}
+					notes={this.state.notes}
+				/>
 			</div>
 		);
 	}

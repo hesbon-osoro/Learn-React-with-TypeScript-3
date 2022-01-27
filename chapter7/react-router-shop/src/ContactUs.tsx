@@ -12,7 +12,7 @@ const ContactUs: React.FC<IProps> = props => {
 		<form className="form" noValidate={true}>
 			<div className="form-group">
 				<label htmlFor="name">Your name</label>
-				<input type="text" id="name" />
+				<input type="text" id="name" value={props.name} />
 			</div>
 		</form>
 	);

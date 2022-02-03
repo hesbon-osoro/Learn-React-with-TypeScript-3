@@ -22,12 +22,12 @@
 
 ## Manual config
 
-### `dist` folder is for the code to be rendered by the Web Server
+ `dist` folder is for the code to be rendered by the Web Server
 
-### `src` folder is for the source code files
+ `src` folder is for the source code files
 
-### `cd manual-react-ts`
+ `cd manual-react-ts`
 
-### `yarn start` to start local development server
+ `yarn start` to start local development server
 
-### `yarn build` to build for production server
+ `yarn build` to build for production server

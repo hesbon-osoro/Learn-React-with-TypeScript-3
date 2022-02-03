@@ -14,11 +14,11 @@
 
 ## create-react-app
 
-### `yarn create react-app react-ts-app --template typescript`
+ `yarn create react-app react-ts-app --template typescript`
 
-### `cd react-ts-app`
+ `cd react-ts-app`
 
-### `yarn start`
+ `yarn start`
 
 ## Manual config
 

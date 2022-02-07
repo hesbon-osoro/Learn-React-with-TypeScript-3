@@ -26,7 +26,9 @@ export class Form extends React.Component<IFormProps, IState> {
 			values: props.defaultValues,
 		};
 	}
-
+	public static Field: React.FC<IFieldProps> = props => {
+		return <div></div>;
+	};
 	public render() {
 		return (
 			<form className="form" noValidate={true}>
@@ -35,3 +37,7 @@ export class Form extends React.Component<IFormProps, IState> {
 		);
 	}
 }
+
+Form.Field.defaultProps = {
+	type: 'Text',
+};

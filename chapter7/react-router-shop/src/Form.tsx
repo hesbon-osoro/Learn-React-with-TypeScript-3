@@ -12,6 +12,13 @@ export interface IState {
 	values: IValues;
 }
 
+export interface IFieldProps {
+	name: string;
+	label: string;
+	type?: 'Text' | 'Email' | 'Select' | 'TextArea';
+	options?: string[];
+}
+
 export class Form extends React.Component<IFormProps, IState> {
 	constructor(props: IFormProps) {
 		super(props);

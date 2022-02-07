@@ -19,6 +19,19 @@ export class ContactUsPage extends React.Component<{}, IState> {
 			reason: '',
 		};
 	}
+	private handleNameChange = (name: string) => {
+		this.setState({ name });
+	};
+	private handleEmailChange = (email: string) => {
+		this.setState({ email });
+	};
+	private handleReasonChange = (reason: string) => {
+		this.setState({ reason });
+	};
+	private handleNotesChange = (notes: string) => {
+		this.setState({ notes });
+	};
+
 	public render() {
 		return (
 			<div className="page-container">
@@ -28,9 +41,13 @@ export class ContactUsPage extends React.Component<{}, IState> {
 				</p>
 				<ContactUs
 					name={this.state.name}
+					onNameChange={this.handleNameChange}
 					email={this.state.email}
+					onEmailChange={this.handleEmailChange}
 					reason={this.state.reason}
+					onReasonChange={this.handleReasonChange}
 					notes={this.state.notes}
+					onNotesChange={this.handleNotesChange}
 				/>
 			</div>
 		);

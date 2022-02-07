@@ -27,7 +27,26 @@ export class Form extends React.Component<IFormProps, IState> {
 		};
 	}
 	public static Field: React.FC<IFieldProps> = props => {
-		return <div></div>;
+		const { name, label, type, options } = props;
+		return (
+			<div className="form-group">
+				<label htmlFor={name}>{label}</label>
+				{(type === 'Text' || type === 'Email') && (
+					<input type={type?.toLowerCase()} id={name} />
+				)}
+				{type === 'TextArea' && <textarea id={name} />}
+				{type === 'Select' && (
+					<select>
+						{options &&
+							options.map(option => (
+								<option key={option} value={option}>
+									{option}
+								</option>
+							))}
+					</select>
+				)}
+			</div>
+		);
 	};
 	public render() {
 		return (

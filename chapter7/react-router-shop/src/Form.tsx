@@ -63,6 +63,10 @@ export class Form extends React.Component<IFormProps, IState> {
 			</FormContext.Consumer>
 		);
 	};
+	private setValue = (fieldName: string, value: any) => {
+		const newValues = { ...this.state.values, [fieldName]: value };
+		this.setState({ values: newValues });
+	};
 	public render() {
 		const context: IFormContext = {
 			values: this.state.values,

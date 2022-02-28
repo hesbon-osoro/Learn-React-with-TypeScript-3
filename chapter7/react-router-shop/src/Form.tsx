@@ -22,6 +22,30 @@ export interface IFormContext {
 	values: IValues;
 	setValue?: (fieldName: string, value: any) => void;
 }
+export type Validator = (
+	fieldName: string,
+	values: IValues,
+	args?: any
+) => string;
+
+export const required: Validator = (
+	fieldName: string,
+	values: IValues,
+	args?: any
+): string =>
+	values[fieldName] === undefined ||
+	values[fieldName] === null ||
+	values[fieldName] === ''
+		? `${fieldName} is required`
+		: '';
+export const minLength: Validator = (
+	fieldName: string,
+	values: IValues,
+	length: number
+): string =>
+	values[fieldName]?.length < length
+		? `${fieldName} must be at least ${length} characters`
+		: '';
 const FormContext = React.createContext<IFormContext>({
 	values: {},
 });

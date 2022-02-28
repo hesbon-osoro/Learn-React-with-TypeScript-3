@@ -85,6 +85,17 @@ export class Form extends React.Component<IFormProps, IState> {
 				context.setValue(props.name, e.currentTarget.value);
 			}
 		};
+		const handleBlur = (
+			e:
+				| React.FocusEvent<HTMLInputElement>
+				| React.FocusEvent<HTMLTextAreaElement>
+				| React.FocusEvent<HTMLSelectElement>,
+			context: IFormContext
+		) => {
+			if (context.validate) {
+				context.validate(props.name, e.currentTarget.value);
+			}
+		};
 		return (
 			<FormContext.Consumer>
 				{context => (
@@ -96,6 +107,7 @@ export class Form extends React.Component<IFormProps, IState> {
 								id={name}
 								value={context.values[name]}
 								onChange={e => handleChange(e, context)}
+								onBlur={e => handleBlur(e, context)}
 							/>
 						)}
 						{type === 'TextArea' && (
@@ -103,12 +115,14 @@ export class Form extends React.Component<IFormProps, IState> {
 								id={name}
 								value={context.values[name]}
 								onChange={e => handleChange(e, context)}
+								onBlur={e => handleBlur(e, context)}
 							/>
 						)}
 						{type === 'Select' && (
 							<select
 								value={context.values[name]}
 								onChange={e => handleChange(e, context)}
+								onBlur={e => handleBlur(e, context)}
 							>
 								{options &&
 									options.map(option => (

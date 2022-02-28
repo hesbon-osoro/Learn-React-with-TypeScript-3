@@ -181,6 +181,9 @@ export class Form extends React.Component<IFormProps, IState> {
 			<FormContext.Provider value={context}>
 				<form className="form" noValidate={true}>
 					{this.props.children}
+					<div className="form-group">
+						<button type="submit">Submit</button>
+					</div>
 				</form>
 			</FormContext.Provider>
 		);

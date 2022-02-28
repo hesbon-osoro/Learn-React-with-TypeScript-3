@@ -14,9 +14,12 @@ export interface IFormProps {
 	defaultValues: IValues;
 	validationRules: IValidationProp;
 }
-
+interface IErrors {
+	[key: string]: string[];
+}
 export interface IState {
 	values: IValues;
+	errors: IErrors;
 }
 
 export interface IFieldProps {
@@ -60,9 +63,11 @@ const FormContext = React.createContext<IFormContext>({
 export class Form extends React.Component<IFormProps, IState> {
 	constructor(props: IFormProps) {
 		super(props);
-		this.state = {
-			values: props.defaultValues,
-		};
+		const errors: IErrors = {};
+		Object.keys(props.defaultValues).forEach(fieldName => {
+			errors[fieldName] = [];
+		});
+		this.state = { errors, values: props.defaultValues };
 	}
 	public static Field: React.FC<IFieldProps> = props => {
 		const { name, label, type, options } = props;

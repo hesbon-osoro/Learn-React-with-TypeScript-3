@@ -182,3 +182,8 @@ textarea {
 	border: lightgray solid 1px;
 	border-radius: 5px;
 }
+.form-error {
+	font-size: 13px;
+	color: red;
+	margin: 3px auto 0px 0px;
+}

@@ -132,6 +132,13 @@ export class Form extends React.Component<IFormProps, IState> {
 									))}
 							</select>
 						)}
+						{context.errors[name] &&
+							context.errors[name].length > 0 &&
+							context.errors[name].map(error => (
+								<span key={error} className="form-error">
+									{error}
+								</span>
+							))}
 					</div>
 				)}
 			</FormContext.Consumer>

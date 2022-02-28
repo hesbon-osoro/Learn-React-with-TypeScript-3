@@ -126,6 +126,28 @@ export class Form extends React.Component<IFormProps, IState> {
 		const newValues = { ...this.state.values, [fieldName]: value };
 		this.setState({ values: newValues });
 	};
+	private validate = (fieldName: string, value: any): string[] => {
+		const rules = this.props.validationRules[fieldName];
+		const errors: string[] = [];
+		if (Array.isArray(rules)) {
+			rules.forEach(rule => {
+				const error = rule.validator(fieldName, this.state.values, rule.arg);
+				if (error) {
+					errors.push(error);
+				}
+			});
+		} else {
+			if (rules) {
+				const error = rules.validator(fieldName, this.state.values, rules.arg);
+				if (error) {
+					errors.push(error);
+				}
+			}
+		}
+		const newErrors = { ...this.state.errors, [fieldName]: errors };
+		this.setState({ errors: newErrors });
+		return errors;
+	};
 	public render() {
 		const context: IFormContext = {
 			errors: this.state.errors,

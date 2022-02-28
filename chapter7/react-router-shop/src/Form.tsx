@@ -29,6 +29,7 @@ export interface IFieldProps {
 	options?: string[];
 }
 export interface IFormContext {
+	errors: IErrors;
 	values: IValues;
 	setValue?: (fieldName: string, value: any) => void;
 }
@@ -57,6 +58,7 @@ export const minLength: Validator = (
 		? `${fieldName} must be at least ${length} characters`
 		: '';
 const FormContext = React.createContext<IFormContext>({
+	errors: {},
 	values: {},
 });
 
@@ -126,6 +128,7 @@ export class Form extends React.Component<IFormProps, IState> {
 	};
 	public render() {
 		const context: IFormContext = {
+			errors: this.state.errors,
 			setValue: this.setValue,
 			values: this.state.values,
 		};

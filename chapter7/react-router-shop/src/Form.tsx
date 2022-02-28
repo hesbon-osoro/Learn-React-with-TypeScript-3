@@ -34,6 +34,17 @@ export class Form extends React.Component<IFormProps, IState> {
 	}
 	public static Field: React.FC<IFieldProps> = props => {
 		const { name, label, type, options } = props;
+		const handleChange = (
+			e:
+				| React.ChangeEvent<HTMLInputElement>
+				| React.ChangeEvent<HTMLTextAreaElement>
+				| React.ChangeEvent<HTMLSelectElement>,
+			context: IFormContext
+		) => {
+			if (context.setValue) {
+				context.setValue(props.name, e.currentTarget.value);
+			}
+		};
 		return (
 			<FormContext.Consumer>
 				{context => (
@@ -44,13 +55,21 @@ export class Form extends React.Component<IFormProps, IState> {
 								type={type?.toLowerCase()}
 								id={name}
 								value={context.values[name]}
+								onChange={e => handleChange(e, context)}
 							/>
 						)}
 						{type === 'TextArea' && (
-							<textarea id={name} value={context.values[name]} />
+							<textarea
+								id={name}
+								value={context.values[name]}
+								onChange={e => handleChange(e, context)}
+							/>
 						)}
 						{type === 'Select' && (
-							<select value={context.values[name]}>
+							<select
+								value={context.values[name]}
+								onChange={e => handleChange(e, context)}
+							>
 								{options &&
 									options.map(option => (
 										<option key={option} value={option}>

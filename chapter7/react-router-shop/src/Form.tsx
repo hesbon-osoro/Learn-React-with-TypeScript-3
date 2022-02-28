@@ -32,6 +32,7 @@ export interface IFormContext {
 	errors: IErrors;
 	values: IValues;
 	setValue?: (fieldName: string, value: any) => void;
+	validate?: (fieldName: string, value: any) => void;
 }
 export type Validator = (
 	fieldName: string,
@@ -152,6 +153,7 @@ export class Form extends React.Component<IFormProps, IState> {
 		const context: IFormContext = {
 			errors: this.state.errors,
 			setValue: this.setValue,
+			validate: this.validate,
 			values: this.state.values,
 		};
 		return (

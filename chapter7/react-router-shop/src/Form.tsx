@@ -3,9 +3,16 @@ import * as React from 'react';
 export interface IValues {
 	[key: string]: any;
 }
-
+interface IValidation {
+	validator: Validator;
+	arg?: any;
+}
+interface IValidationProp {
+	[key: string]: IValidation | IValidation[];
+}
 export interface IFormProps {
 	defaultValues: IValues;
+	validationRules: IValidationProp;
 }
 
 export interface IState {
@@ -49,6 +56,7 @@ export const minLength: Validator = (
 const FormContext = React.createContext<IFormContext>({
 	values: {},
 });
+
 export class Form extends React.Component<IFormProps, IState> {
 	constructor(props: IFormProps) {
 		super(props);

@@ -20,6 +20,7 @@ export interface IFieldProps {
 }
 export interface IFormContext {
 	values: IValues;
+	setValue?: (fieldName: string, value: any) => void;
 }
 const FormContext = React.createContext<IFormContext>({
 	values: {},
@@ -69,6 +70,7 @@ export class Form extends React.Component<IFormProps, IState> {
 	};
 	public render() {
 		const context: IFormContext = {
+			setValue: this.setValue,
 			values: this.state.values,
 		};
 		return (

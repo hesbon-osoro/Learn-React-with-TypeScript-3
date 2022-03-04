@@ -6,6 +6,7 @@ import {
 } from './ProductsTypes';
 
 const initialProductState: IProductsState = {
+	currentProduct: null,
 	products: [],
 	productsLoading: false,
 };
@@ -20,6 +21,13 @@ export const productsReducer: Reducer<IProductsState, ProductsActions> = (
 		}
 		case ProductsActionTypes.GETALL: {
 			return { ...state, products: action.products, productsLoading: false };
+		}
+		case ProductsActionTypes.GETSINGLE: {
+			return {
+				...state,
+				currentProduct: action.product,
+				productsLoading: false,
+			};
 		}
 	}
 };

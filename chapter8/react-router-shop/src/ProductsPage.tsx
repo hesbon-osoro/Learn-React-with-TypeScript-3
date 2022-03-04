@@ -5,6 +5,7 @@ import 'url-search-params-polyfill';
 import { connect } from 'react-redux';
 import { IApplicationState } from './Store';
 import { getProducts } from './ProductsActions';
+import ProductsList from './ProductsList';
 
 interface IState {
 	products: IProduct[];
@@ -27,6 +28,11 @@ class ProductsPage extends Component<IProps> {
 				<p>
 					Welcome to React Shop where you can get all your tools for ReactJS!
 				</p>
+				<ProductsList
+					search={search}
+					products={this.props.products}
+					loading={this.props.loading}
+				/>
 			</div>
 		);
 	}

@@ -14,3 +14,8 @@ export interface IProductsLoadingAction {
 }
 
 export type ProductsActions = IProductsGetAllAction | IProductsLoadingAction;
+
+export interface IProductsState {
+	readonly products: IProduct[];
+	readonly productsLoading: boolean;
+}

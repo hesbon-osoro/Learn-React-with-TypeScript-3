@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { IProduct } from './ProductsData';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import 'url-search-params-polyfill';
 import { connect } from 'react-redux';
 import { IApplicationState } from './Store';
 import { getProducts } from './ProductsActions';
 import ProductsList from './ProductsList';
 
-interface IState {
-	products: IProduct[];
-	search: string;
-}
 interface IProps extends RouteComponentProps {
 	getProducts: typeof getProducts;
 	loading: boolean;

@@ -1,14 +1,43 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { IProduct } from './ProductsData';
 import Tabs from './Tabs';
 import withLoader from './withLoader';
 
+interface ILikeState {
+	likes: number;
+	lastLike: Date | null;
+}
+const initialLikeState: ILikeState = {
+	likes: 0,
+	lastLike: null,
+};
+enum LikeActionType {
+	LIKE = 'LIKE',
+}
+interface ILikeAction {
+	type: LikeActionType.LIKE;
+	now: Date;
+}
+
+type LikeActions = ILikeAction;
+
+const reducer = (state: ILikeState = initialLikeState, action: LikeActions) => {
+	switch (action.type) {
+		case LikeActionType.LIKE:
+			return { ...state, likes: state.likes + 1, lastLike: action.now };
+	}
+	return state;
+};
 export interface IProps {
 	product?: IProduct;
 	inBasket: boolean;
 	onAddToBasket: () => void;
 }
 const Product: React.FC<IProps> = props => {
+	const [{ likes, lastLike }, dispatch]: [
+		ILikeState,
+		(action: ILikeAction) => void
+	] = useReducer(reducer, initialLikeState);
 	const product = props.product;
 
 	const handleAddClick = () => {
@@ -17,6 +46,9 @@ const Product: React.FC<IProps> = props => {
 	if (!product) {
 		return null;
 	}
+	const handleLikeClick = () => {
+		dispatch({ type: LikeActionType.LIKE, now: new Date() });
+	};
 	return (
 		<React.Fragment>
 			<h1>{product.name}</h1>
@@ -48,6 +80,14 @@ const Product: React.FC<IProps> = props => {
 			{!props.inBasket && (
 				<button onClick={handleAddClick}>Add to basket</button>
 			)}
+			<div className="like-container">
+				{likes > 0 && (
+					<div>{`I like this x ${likes}, last at ${lastLike}`}</div>
+				)}
+				<button onClick={handleLikeClick}>
+					{likes > 0 ? 'Like again' : 'Like'}
+				</button>
+			</div>
 		</React.Fragment>
 	);
 };

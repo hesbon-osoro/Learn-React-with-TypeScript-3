@@ -3,7 +3,7 @@
 ### Topics
 
 - Principles and key concepts
-- Installing Redux 
+- Installing Redux
 - Creating reducers
 - Creating actions
 - Creating a store

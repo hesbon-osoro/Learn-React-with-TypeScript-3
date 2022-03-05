@@ -30,4 +30,5 @@ export const productsReducer: Reducer<IProductsState, ProductsActions> = (
 			};
 		}
 	}
+	return state;
 };

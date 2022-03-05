@@ -201,3 +201,10 @@ textarea {
 	background-color: gray;
 	cursor: not-allowed;
 }
+
+.basket-summary {
+	display: inline-block;
+	margin-left: 10px;
+	padding: 5px 10px;
+	border: white solid 2px;
+}

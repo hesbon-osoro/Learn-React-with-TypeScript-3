@@ -1,0 +1,14 @@
+{
+	"name": "chapter9",
+	"version": "1.0.0",
+	"description": "Interacting with RESTful APIs",
+	"main": "index.js",
+	"license": "MIT",
+	"private": true,
+	"devDependencies": {
+		"prettier": "^2.5.1"
+	},
+	"scripts": {
+		"format": "prettier --write ."
+	}
+}

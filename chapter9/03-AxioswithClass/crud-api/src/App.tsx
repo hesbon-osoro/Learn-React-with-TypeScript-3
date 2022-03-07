@@ -20,7 +20,9 @@ class App extends Component<{}, IState> {
 	}
 	public componentDidMount() {
 		axios
-			.get<IPost[]>('https://jsonplaceholder.typicode.com/posts')
+			.get<IPost[]>('https://jsonplaceholder.typicode.com/posts', {
+				headers: { 'Content-Type': 'application/json' },
+			})
 			.then(response => {
 				this.setState({ posts: response.data });
 			})

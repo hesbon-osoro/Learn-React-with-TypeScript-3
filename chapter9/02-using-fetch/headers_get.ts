@@ -6,6 +6,6 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 })
 	.then(res => {
 		console.log(res.status);
-        return res.json()
+		return res.json();
 	})
 	.then(data => console.log(data));

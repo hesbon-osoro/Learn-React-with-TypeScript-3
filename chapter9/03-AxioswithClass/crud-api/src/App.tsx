@@ -79,6 +79,9 @@ class App extends Component<{}, IState> {
 						<li key={post.id}>
 							<h3>{post.title}</h3>
 							<p>{post.body}</p>
+							<button onClick={() => this.handleUpdateClick(post)}>
+								Update
+							</button>
 						</li>
 					))}
 				</ul>
@@ -102,23 +105,47 @@ class App extends Component<{}, IState> {
 		});
 	};
 	private handleSaveClick = () => {
-		axios
-			.post<IPost>(
-				'https://jsonplaceholder.typicode.com/posts',
-				{
-					body: this.state.editPost.body,
-					title: this.state.editPost.title,
-					userId: this.state.editPost.userId,
-				},
-				{
-					headers: {
-						'Content-Type': 'application/json',
+		if (this.state.editPost.id) {
+			axios
+				.put<IPost>(
+					`https://jsonplaceholder.typicode.com/posts/${this.state.editPost.id}`,
+					this.state.editPost,
+					{ headers: { 'Content-Type': 'application/json' } }
+				)
+				.then(() => {
+					this.setState({
+						editPost: {
+							body: '',
+							title: '',
+							userId: 1,
+						},
+						posts: this.state.posts
+							.filter(post => post.id !== this.state.editPost.id)
+							.concat(this.state.editPost),
+					});
+				});
+		} else {
+			axios
+				.post<IPost>(
+					'https://jsonplaceholder.typicode.com/posts',
+					{
+						body: this.state.editPost.body,
+						title: this.state.editPost.title,
+						userId: this.state.editPost.userId,
 					},
-				}
-			)
-			.then(res => {
-				this.setState({ posts: this.state.posts.concat(res.data) });
-			});
+					{
+						headers: {
+							'Content-Type': 'application/json',
+						},
+					}
+				)
+				.then(res => {
+					this.setState({ posts: this.state.posts.concat(res.data) });
+				});
+		}
+	};
+	private handleUpdateClick = (post: IPost) => {
+		this.setState({ editPost: post });
 	};
 }
 export default App;

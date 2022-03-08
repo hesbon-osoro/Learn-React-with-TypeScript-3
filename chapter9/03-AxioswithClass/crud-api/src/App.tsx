@@ -82,6 +82,7 @@ class App extends Component<{}, IState> {
 							<button onClick={() => this.handleUpdateClick(post)}>
 								Update
 							</button>
+							<button onClick={() => this.handleDeleteClick}>Delete</button>
 						</li>
 					))}
 				</ul>
@@ -146,6 +147,15 @@ class App extends Component<{}, IState> {
 	};
 	private handleUpdateClick = (post: IPost) => {
 		this.setState({ editPost: post });
+	};
+	private handleDeleteClick = (post: IPost) => {
+		axios
+			.delete(`https://jsonplaceholder.typicode.com/posts/${post.id}`)
+			.then(() => {
+				this.setState({
+					posts: this.state.posts.filter(p => p.id !== post.id),
+				});
+			});
 	};
 }
 export default App;

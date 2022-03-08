@@ -82,7 +82,9 @@ class App extends Component<{}, IState> {
 							<button onClick={() => this.handleUpdateClick(post)}>
 								Update
 							</button>
-							<button onClick={() => this.handleDeleteClick}>Delete</button>
+							<button onClick={() => this.handleDeleteClick(post)}>
+								Delete
+							</button>
 						</li>
 					))}
 				</ul>

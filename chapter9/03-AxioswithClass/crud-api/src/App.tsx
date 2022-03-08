@@ -13,12 +13,22 @@ interface IState {
 	error: string;
 	cancelTokenSource?: CancelTokenSource;
 	loading: boolean;
+	editPost: IPost;
 }
 
 class App extends Component<{}, IState> {
 	public constructor(props: {}) {
 		super(props);
-		this.state = { posts: [], error: '', loading: true };
+		this.state = {
+			posts: [],
+			error: '',
+			loading: true,
+			editPost: {
+				body: '',
+				title: '',
+				userId: 1,
+			},
+		};
 	}
 	public componentDidMount() {
 		const cancelToken = axios.CancelToken;
@@ -47,6 +57,20 @@ class App extends Component<{}, IState> {
 	public render() {
 		return (
 			<div className="App">
+				<div className="post-edit">
+					<input
+						type="text"
+						placeholder="Enter title"
+						value={this.state.editPost.title}
+						onChange={this.handleTitleChange}
+					/>
+					<textarea
+						placeholder="Enter body"
+						value={this.state.editPost.body}
+						onChange={this.handleBodyChange}
+					/>
+					<button onClick={this.handleSaveClick}>Save</button>
+				</div>
 				{this.state.loading && (
 					<button onClick={this.handleCancelClick}>Cancel</button>
 				)}
@@ -66,6 +90,31 @@ class App extends Component<{}, IState> {
 		if (this.state.cancelTokenSource) {
 			this.state.cancelTokenSource.cancel('User cancelled operation');
 		}
+	};
+	private handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		this.setState({
+			editPost: { ...this.state.editPost, title: e.currentTarget.value },
+		});
+	};
+	private handleBodyChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+		this.setState({
+			editPost: { ...this.state.editPost, body: e.currentTarget.value },
+		});
+	};
+	private handleSaveClick = () => {
+		axios.post<IPost>(
+			'https://jsonplaceholder.typicode.com/posts',
+			{
+				body: this.state.editPost,
+				title: this.state.editPost.title,
+				userId: this.state.editPost.userId,
+			},
+			{
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		);
 	};
 }
 export default App;

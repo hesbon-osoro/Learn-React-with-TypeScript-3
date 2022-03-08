@@ -102,19 +102,23 @@ class App extends Component<{}, IState> {
 		});
 	};
 	private handleSaveClick = () => {
-		axios.post<IPost>(
-			'https://jsonplaceholder.typicode.com/posts',
-			{
-				body: this.state.editPost,
-				title: this.state.editPost.title,
-				userId: this.state.editPost.userId,
-			},
-			{
-				headers: {
-					'Content-Type': 'application/json',
+		axios
+			.post<IPost>(
+				'https://jsonplaceholder.typicode.com/posts',
+				{
+					body: this.state.editPost.body,
+					title: this.state.editPost.title,
+					userId: this.state.editPost.userId,
 				},
-			}
-		);
+				{
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			)
+			.then(res => {
+				this.setState({ posts: this.state.posts.concat(res.data) });
+			});
 	};
 }
 export default App;

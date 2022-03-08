@@ -24,3 +24,24 @@ code {
 .error {
 	color: red;
 }
+
+.post-edit {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	margin: 0px auto;
+}
+.post-edit input {
+	font-family: inherit;
+	width: 100%;
+	margin-bottom: 5px;
+}
+.post-edit textarea {
+	font-family: inherit;
+	width: 100%;
+	margin-bottom: 5px;
+}
+.post-edit button {
+	font-family: inherit;
+	width: 100px;
+}

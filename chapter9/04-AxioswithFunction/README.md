@@ -1,7 +1,8 @@
 ## Using Axios with Function components
 
 ## React App for CRUD operations
-- Create 
+
+- Create
 - Read
 - Update
 - Delete
@@ -9,6 +10,7 @@
 ### Axios benefits over fetch
 
 ## Technology
+
 - [`React`](https://reactjs.org/)
 - [`TypeScript`](https://www.typescriptlang.org/)
 - [`JSONPlaceholder`](http://jsonplaceholder.typicode.com/)

@@ -1,0 +1,32 @@
+# We need the repo id from the query in order to
+# write a mutation to that specific repo
+query ($org: String!, $repo: String!) {
+	repository(owner: $org, name: $repo) {
+		id
+		name
+		description
+		stargazers {
+			stars: totalCount
+		}
+		issues(last: 5) {
+			edges {
+				node {
+					id
+					title
+					url
+					publishedAt
+				}
+			}
+		}
+	}
+}
+
+mutation ($repoId: ID!) {
+	addStar(input: { starrableId: $repoId }) {
+		starrable {
+			stargazers {
+				totalCount
+			}
+		}
+	}
+}

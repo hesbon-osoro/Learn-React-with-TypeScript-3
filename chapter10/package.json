@@ -1,0 +1,13 @@
+{
+	"name": "chapter10",
+	"version": "1.0.0",
+	"description": "GraphQL APIs",
+	"main": "index.js",
+	"license": "MIT",
+	"devDependencies": {
+		"prettier": "^2.5.1"
+	},
+	"scripts": {
+		"format": "prettier --write ."
+	}
+}

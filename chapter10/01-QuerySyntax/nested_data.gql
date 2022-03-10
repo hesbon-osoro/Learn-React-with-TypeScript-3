@@ -1,0 +1,19 @@
+query {
+	repository(owner: "facebook", name: "react") {
+		name
+		description
+		stargazers {
+			stars: totalCount
+		}
+		issues(last: 5) {
+			edges {
+				node {
+					id
+					title
+					url
+					publishedAt
+				}
+			}
+		}
+	}
+}

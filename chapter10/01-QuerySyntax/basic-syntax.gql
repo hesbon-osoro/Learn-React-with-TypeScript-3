@@ -1,0 +1,13 @@
+# Github username
+query {
+	viewer {
+		name
+	}
+}
+
+# Github username
+query {
+	viewer {
+		login
+	}
+}

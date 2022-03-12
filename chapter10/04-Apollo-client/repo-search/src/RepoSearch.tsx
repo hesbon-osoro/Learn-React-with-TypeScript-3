@@ -140,7 +140,53 @@ const RepoSearch: React.FC<IProps> = props => {
 					<p>{repo.description}</p>
 					<div>
 						{!repo.viewerHasStarred && (
-							<Mutation mutation={STAR_REPO} variables={{ repoId: repo.id }}>
+							<Mutation
+								mutation={STAR_REPO}
+								variables={{ repoId: repo.id }}
+								update={(cache: any) => {
+									// Get the cached data
+									const data: { repository: IRepo } | null = cache.readQuery({
+										query: GET_REPO,
+										variables: {
+											orgName: search.orgName,
+											repoName: search.repoName,
+										},
+									});
+									if (data === null) {
+										return;
+									}
+									const newData = {
+										...data.repository,
+										viewerHasStarred: true,
+										stargazers: {
+											...data.repository.stargazers,
+											totalCount: data.repository.stargazers.totalCount + 1,
+										},
+									};
+									// update the cached data
+									cache.writeQuery({
+										query: {
+											GET_REPO,
+											variables: {
+												orgName: search.orgName,
+												repoName: search.repoName,
+											},
+											data: { repository: newData },
+										},
+									});
+									// update our state
+									setRepo(newData);
+								}}
+								refetchQueries={[
+									{
+										query: GET_REPO,
+										variables: {
+											orgName: search.orgName,
+											repoName: search.repoName,
+										},
+									},
+								]}
+							>
 								{(
 									addStar: () => void,
 									{ loading, error }: { loading: boolean; error?: ApolloError }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import gql from 'graphql-tag';
-import { ApolloClient } from 'apollo-boost';
+import { ApolloClient, ApolloError } from 'apollo-boost';
+import { Mutation } from 'react-apollo';
 
 interface IProps {
 	client: ApolloClient<any>;
@@ -70,6 +71,17 @@ const GET_REPO = gql`
 		}
 	}
 `;
+const STAR_REPO = gql`
+	mutation ($repoId: ID!) {
+		addStar(input: { starrableID: $repoId }) {
+			starrable {
+				stargazers {
+					totalCount
+				}
+			}
+		}
+	}
+`;
 const RepoSearch: React.FC<IProps> = props => {
 	const [search, setSearch]: [ISearch, (search: ISearch) => void] = useState({
 		orgName: '',
@@ -127,11 +139,28 @@ const RepoSearch: React.FC<IProps> = props => {
 					</h4>
 					<p>{repo.description}</p>
 					<div>
+						{!repo.viewerHasStarred && (
+							<Mutation mutation={STAR_REPO} variables={{ repoId: repo.id }}>
+								{(
+									addStar: () => void,
+									{ loading, error }: { loading: boolean; error?: ApolloError }
+								) => (
+									<div>
+										<button disabled={loading} onClick={() => addStar()}>
+											{loading ? 'Adding ...' : 'Star!'}
+										</button>
+										{error && <div>{error.toString()}</div>}
+									</div>
+								)}
+							</Mutation>
+						)}
+					</div>
+					<div>
 						Last 5 issues:
 						{repo.issues && repo.issues.edges ? (
 							<ul>
-								{repo.issues.edges.map(item => (
-									<li key={item.node.id}>{item.node.title}</li>
+								{repo.issues.edges.map(issue => (
+									<li key={issue.node.id}>{issue.node.title}</li>
 								))}
 							</ul>
 						) : null}

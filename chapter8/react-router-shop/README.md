@@ -1,6 +1,6 @@
-## React and TypeScript
+## React Shop
 
-### React Router
+### React Router topics
 
 - Installing React Router with routing types
 - Declaring routes
@@ -13,3 +13,12 @@
 - Nested routes
 - Animated transitions
 - Lazy loading routes
+
+## Technologies
+- React
+- TypeScript
+- Redux
+- React Router
+- Jest
+- Node.js and *npm | yarn*
+- vscode

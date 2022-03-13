@@ -1,4 +1,4 @@
-src/credentials.*
+src/credentials.js
 
 # dependencies
 /node_modules

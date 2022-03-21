@@ -15,10 +15,11 @@
 - Lazy loading routes
 
 ## Technologies
+
 - React
 - TypeScript
 - Redux
 - React Router
 - Jest
-- Node.js and *npm | yarn*
+- Node.js and _npm | yarn_
 - vscode

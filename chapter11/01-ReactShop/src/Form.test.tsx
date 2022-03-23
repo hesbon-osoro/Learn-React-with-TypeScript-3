@@ -6,6 +6,6 @@ describe('required', () => {
 			title: '',
 		};
 		const result = required('title', values);
-		expect(result).toBe('title is required');
+		expect(result).toBe('This must be populated');
 	});
 });

@@ -50,6 +50,13 @@ describe('ContactUs', () => {
 		const errorsDiv = container.querySelector('[data-testid="formErrors"]');
 		expect(errorsDiv).toBeNull();
 	});
+	test('Renders okay', () => {
+		const handleSubmit = async (): Promise<ISubmitResult> => {
+			return { success: true };
+		};
+		const { container } = render(<ContactUs onSubmit={handleSubmit} />);
+		expect(container).toMatchSnapshot();
+	});
 });
 // describe('ContactUs', () => {
 // 	test('When submit without filling in fields should display errors', () => {

@@ -46,6 +46,9 @@ describe('ContactUs', () => {
 		});
 		const submitButton = getByText('Submit');
 		fireEvent.click(submitButton);
+
+		const errorsDiv = container.querySelector('[data-testid="formErrors"]');
+		expect(errorsDiv).toBeNull();
 	});
 });
 // describe('ContactUs', () => {

@@ -32,6 +32,20 @@ describe('ContactUs', () => {
 		const { container, getByText, getByLabelText } = render(
 			<ContactUs onSubmit={handleSubmit} />
 		);
+		const nameField: HTMLInputElement = getByLabelText(
+			'Your name'
+		) as HTMLInputElement;
+		expect(nameField).not.toBeNull();
+		fireEvent.change(nameField, { target: { value: 'Hesbon' } });
+		const emailField: HTMLInputElement = getByLabelText(
+			'Your email address'
+		) as HTMLInputElement;
+		expect(emailField).not.toBeNull();
+		fireEvent.change(emailField, {
+			target: { value: 'hesbonosoro1@gmail.com' },
+		});
+		const submitButton = getByText('Submit');
+		fireEvent.click(submitButton);
 	});
 });
 // describe('ContactUs', () => {

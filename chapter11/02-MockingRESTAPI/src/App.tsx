@@ -126,16 +126,18 @@ const App: React.FC = () => {
 				<button onClick={handleSaveClick}>Save</button>
 			</div>
 			{loading && <button onClick={handleCancelClick}>Cancel</button>}
-			<ul className="posts">
-				{posts.map(post => (
-					<li key={post.id}>
-						<h3>{post.title}</h3>
-						<p>{post.body}</p>
-						<button onClick={() => handleUpdateClick(post)}>Update</button>
-						<button onClick={() => handleDeleteClick(post)}>Delete</button>
-					</li>
-				))}
-			</ul>
+			{posts.length > 0 && (
+				<ul className="posts" data-testid="posts">
+					{posts.map(post => (
+						<li key={post.id}>
+							<h3>{post.title}</h3>
+							<p>{post.body}</p>
+							<button onClick={() => handleUpdateClick(post)}>Update</button>
+							<button onClick={() => handleDeleteClick(post)}>Delete</button>
+						</li>
+					))}
+				</ul>
+			)}
 			{error && <p className="error">{error}</p>}
 		</div>
 	);
